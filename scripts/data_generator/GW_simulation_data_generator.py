@@ -7,7 +7,7 @@
 
 # Example :
 
-# from gwtc_waveform_pipeline import L1NoiseGenerator, GWTCWaveformSimulator
+# from GW_simulation_data_generator import L1NoiseGenerator, GWTCWaveformSimulator
 
 # noise_gen = L1NoiseGenerator(
 #     data_folder="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/gravitational_wave_real_data",
@@ -182,4 +182,5 @@ class GWTCWaveformSimulator:
                             pbar.update(1)
 
         tqdm.write(f"{sim_count} gravitational wave simulations completed and saved.")
+
 
