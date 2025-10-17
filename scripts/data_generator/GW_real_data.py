@@ -5,7 +5,7 @@
 
 # Example :
 
-# from get_real_data_pipeline import GWTCDataHandler
+# from GW_real_data import GWTCDataHandler
 # gwtc_handler = GWTCDataHandler(
 #     gwtc_csv_path="GWTC_123.csv",
 #     output_folder="gravitational_wave_real_data",
@@ -208,5 +208,6 @@ class GWTCDataHandler:
         self.download_and_extract_parallel()
         self.process_waveforms()
         print("Pipeline completed successfully!")
+
 
 
