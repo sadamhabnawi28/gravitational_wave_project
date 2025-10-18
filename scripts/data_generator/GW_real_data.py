@@ -1,10 +1,7 @@
 # ==============================================================================================================
-
 # This code is the pipeline to get the real LIGO GW data
 # To run this pipeline specify the catalog file and the output directory into the GWTCDataHandler class
-
 # Example :
-
 # from GW_real_data import GWTCDataHandler
 # gwtc_handler = GWTCDataHandler(
 #     gwtc_csv_path="GWTC_123.csv",
@@ -12,7 +9,6 @@
 #     waveform_output="gravitational_wave_real_data/waveform",
 #     max_workers=10)
 # gwtc_handler.run_pipeline()
-
 # ==============================================================================================================
 
 import os
@@ -26,7 +22,6 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
 from pycbc.types import TimeSeries
 from pycbc.filter import highpass
 from pycbc.psd import interpolate, inverse_spectrum_truncation
@@ -52,14 +47,12 @@ class GWTCDataHandler:
         os.makedirs(self.output_folder, exist_ok=True)
         os.makedirs(self.waveform_output, exist_ok=True)
 
-    # ================================================================
     def load_gwtc_catalog(self):
         """Load the GWTC catalog CSV file."""
         print("Loading GWTC catalog...")
         self.gwtc_df = pd.read_csv(self.gwtc_csv_path)
         print(f"Loaded {len(self.gwtc_df)} catalog entries.\n")
 
-    # ================================================================
     def fetch_json_data(self):
         """Fetch JSON data from each event URL in the catalog."""
         print("Fetching JSON metadata from URLs...")
@@ -75,7 +68,6 @@ class GWTCDataHandler:
                 tqdm.write(f"Error fetching {url}: {e}")
         tqdm.write(f"Total JSON files fetched: {len(self.json_data)}\n")
 
-    # ================================================================
     def extract_strain_metadata(self):
         """Extract strain metadata for H1 or L1 detectors."""
         print("Extracting strain metadata...")
@@ -95,7 +87,6 @@ class GWTCDataHandler:
         self.strain_metadata = strain_data
         tqdm.write(f"Extracted {len(strain_data)} valid strain entries.\n")
 
-    # ================================================================
     def generate_url_list(self):
         """Generate list of URLs with detector and event name."""
         print("Building URL list...")
@@ -108,14 +99,13 @@ class GWTCDataHandler:
         tqdm.write(f"URL list built with {len(self.url_list)} entries.\n")
         return df_merged[['commonName', 'detector', 'url']]
 
-    # ================================================================
     def _download_and_extract_single(self, url_info):
         """Download and extract a single strain file."""
         common_name, detector, url = url_info
         file_name = f"{detector}_{common_name}.txt"
         save_path = os.path.join(self.output_folder, file_name)
 
-        if os.path.exists(save_path):  # Skip if already exists
+        if os.path.exists(save_path):  
             return f"Skipped (exists): {file_name}"
 
         try:
@@ -130,7 +120,6 @@ class GWTCDataHandler:
         except requests.RequestException as e:
             return f"Error {file_name}: {e}"
 
-    # ================================================================
     def download_and_extract_parallel(self):
         """Download and extract all strain data."""
         total_files = len(self.url_list)
@@ -146,7 +135,6 @@ class GWTCDataHandler:
 
         tqdm.write("All strain data downloaded and extracted!\n")
 
-    # ================================================================
     def _get_waveform(self, strain, start_time, sample_rate, merge_time):
         """Whiten and filter the strain waveform."""
         strain = TimeSeries(strain, delta_t=1/sample_rate, epoch=start_time)
@@ -159,7 +147,6 @@ class GWTCDataHandler:
         white_data = white_data.highpass_fir(30., 512).lowpass_fir(300, 512)
         return white_data.time_slice(merge_time - 0.8, merge_time + 0.2)
 
-    # ================================================================
     def process_waveforms(self):
         """Process and whiten all downloaded strain files."""
         print("Processing downloaded gravitational wave data...\n")
@@ -173,8 +160,6 @@ class GWTCDataHandler:
             filepath = os.path.join(self.output_folder, filename)
             det, common_name = filename.split("_", 1)
             common_name = common_name.replace(".txt", "")
-
-            # Match row in DataFrame
             try:
                 row = df[(df["id"] == common_name) & (df["detector"] == det)].iloc[0]
             except IndexError:
@@ -197,7 +182,6 @@ class GWTCDataHandler:
         tqdm.write(f"{count} gravitational wave real data waveforms processed and saved.")
         tqdm.write("DONE\n")
 
-    # ================================================================
     def run_pipeline(self):
         """Run the full GWTC data pipeline: download → extract → process."""
         print("Starting GWTC data pipeline...\n")
@@ -208,6 +192,7 @@ class GWTCDataHandler:
         self.download_and_extract_parallel()
         self.process_waveforms()
         print("Pipeline completed successfully!")
+
 
 
 
