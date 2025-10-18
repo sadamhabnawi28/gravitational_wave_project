@@ -1,30 +1,23 @@
 # ======================================================================================================================
-
 # This is the pipeline to genarate gravitational waves simulations data added with simulated transient noise 
 # To run this pipeline 
 # first, generate the noise samples with specified real data folder and the output folder
 # second, run the simulation data generator with specified mass range and distance range 
-
+#
 # Example :
-
 # from GW_simulation_data_generator import L1NoiseGenerator, GWTCWaveformSimulator
-
 # noise_gen = L1NoiseGenerator(
 #     data_folder="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/gravitational_wave_real_data",
 #     output_folder="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/generated_noises")
 # generated = noise_gen.generate_all_noises()
 # print(generated)
-
 # sim = GWTCWaveformSimulator(
 #     noise_folder="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/generated_noises", 
 #     output_folder="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/GW_L1_sim_data")
 # mass_range = np.linspace(5, 45, 8)
 # distance_range = np.linspace(600, 1945, 4)
 # sim.run_simulations(mass_range, distance_range)
-
 # ======================================================================================================================
-
-
 
 import os
 import numpy as np
@@ -37,10 +30,7 @@ from pycbc.psd import (
     AdVEarlyHighSensitivityP1200087, AdVBNSOptimizedSensitivityP1200087,
     AdVDesignSensitivityP1200087)
 
-# ==================================================
 # Noise Samples Generator
-# ==================================================
-
 class L1NoiseGenerator:
     def __init__(self, data_folder, output_folder):
         self.data_folder = data_folder
@@ -81,7 +71,7 @@ class L1NoiseGenerator:
                 generated_files.append(save_path)
         return generated_files
 
-    # ===== PSD generator functions for each noise =====
+    # PSD generator functions for each noise
     def psd_15(self, delta_f):
         psd = AdVBNSOptimizedSensitivityP1200087(32*4096, delta_f, 15)/43
         psd += aLIGOZeroDetHighPower(32*4096, delta_f, 15)*5
@@ -118,11 +108,7 @@ class L1NoiseGenerator:
         psd += AdVDesignSensitivityP1200087(32*4096, delta_f, 15)/1.319
         return psd
 
-
-
-# ==========================================================
 # GW Simulations Generator
-# ==========================================================
 class GWTCWaveformSimulator:
     def __init__(self, noise_folder, output_folder):
         self.noise_folder = noise_folder
@@ -132,12 +118,10 @@ class GWTCWaveformSimulator:
         self.total_duration = 32
         self.start_time = 0
         os.makedirs(self.output_folder, exist_ok=True)
-
         # Load noise files
         self.noise_files = [np.loadtxt(os.path.join(noise_folder, f"L1_{n}_noise.txt"), skiprows=1)
                             for n in ["GW151012-v3", "GW170809-v1", 
                                       "GW190517", "GW200225"]]
-
     def add_noise(self, hp):
         """Insert waveform into random noise background."""
         total_samples = self.total_duration * self.sample_rate
@@ -169,18 +153,13 @@ class GWTCWaveformSimulator:
                             hp, _ = get_td_waveform(
                                 approximant="SEOBNRv4_opt",
                                 mass1=mass1, mass2=mass2, distance=distance,
-                                delta_t=1/self.sample_rate, f_lower=self.f_lower
-                            )
-
+                                delta_t=1/self.sample_rate, f_lower=self.f_lower)
                             noisy_strain = self.add_noise(hp)
                             merge_time = 15 + len(hp)/self.sample_rate
                             processed_wave = self.get_waveform(noisy_strain, merge_time)
-
                             filename = f"Waveform_Mass1_{mass1:.1f}_Mass2_{mass2:.1f}_Distance_{distance:.1f}.txt"
                             np.savetxt(os.path.join(self.output_folder, filename), processed_wave, header="Noisy Strain h+")
                             sim_count += 1
                             pbar.update(1)
-
         tqdm.write(f"{sim_count} gravitational wave simulations completed and saved.")
-
 
