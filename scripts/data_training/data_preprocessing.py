@@ -1,3 +1,17 @@
+# ======================================================================================================================
+# This code is the pipeline to preprocess the simulated data before training. This pipeline consist of data loading from 
+# waveforms into a single txt file and the conversion into spectrogram for each waveform from that txt file.
+#
+# Example :
+# from data_preprocessing import WaveformDatasetLoader
+# loader = WaveformDatasetLoader(data_dir="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/GW_L1_sim_data")
+# Run the full preprocessing pipeline
+# loader.run_pipeline()
+# X_specs, y_labels = loader.spectrograms, loader.labels
+# print("Spectrograms shape:", X_specs.shape)
+# print("Labels shape:", y_labels.shape)
+# ======================================================================================================================
+
 import os
 import numpy as np
 from tqdm import tqdm
