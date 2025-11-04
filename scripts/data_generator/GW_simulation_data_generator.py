@@ -7,13 +7,13 @@
 # Example :
 # from GW_simulation_data_generator import L1NoiseGenerator, GWTCWaveformSimulator
 # noise_gen = L1NoiseGenerator(
-#     data_folder=".../gravitational_wave_real_data",
-#     output_folder=".../generated_noises")
+#     data_folder="gravitational_wave_real_data",
+#     output_folder="generated_noises")
 # generated = noise_gen.generate_all_noises()
 # print(generated)
 # sim = GWTCWaveformSimulator(
-#     noise_folder="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/generated_noises", 
-#     output_folder="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/GW_L1_sim_data")
+#     noise_folder="/generated_noises", 
+#     output_folder="GW_sim_data")
 # mass_range = np.linspace(5, 45, 8)
 # distance_range = np.linspace(600, 1945, 4)
 # sim.run_simulations(mass_range, distance_range)
@@ -162,6 +162,7 @@ class GWTCWaveformSimulator:
                             sim_count += 1
                             pbar.update(1)
         tqdm.write(f"{sim_count} gravitational wave simulations completed and saved.")
+
 
 
 
