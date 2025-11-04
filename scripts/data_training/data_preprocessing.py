@@ -34,8 +34,7 @@ class WaveformDatasetLoader:
         self.y = None
         self.spectrograms = None
         self.labels = None
-
-    # ------------------------------------------------------------------
+        
     def _parse_filename(self, filename):
         """
         Extracts mass1, mass2, and distance values from a standardized filename.
@@ -50,7 +49,6 @@ class WaveformDatasetLoader:
         except (IndexError, ValueError):
             raise ValueError(f"Filename '{filename}' does not follow expected format.")
 
-    # ------------------------------------------------------------------
     def load_data(self):
         """Load waveform .txt files into numpy arrays (time series)."""
         X, y = [], []
@@ -82,7 +80,6 @@ class WaveformDatasetLoader:
         np.savetxt(y_path, self.y, delimiter=",")
         tqdm.write(f"Saved arrays to:\n- {X_path}\n- {y_path}")
 
-    # ------------------------------------------------------------------
     def convert_to_spectrograms(self, resize_shape=(128, 128), fs=4096):
         """
         Convert loaded waveform time-series data into 2D spectrograms.
@@ -129,7 +126,6 @@ class WaveformDatasetLoader:
         tqdm.write(f"Generated {len(self.spectrograms)} spectrograms ({resize_shape[0]}×{resize_shape[1]}).")
         return self.spectrograms, self.labels
 
-    # ------------------------------------------------------------------
     def save_spectrograms(self):
         """Save spectrograms and labels as .npy files."""
         if self.spectrograms is None or self.labels is None:
@@ -141,7 +137,6 @@ class WaveformDatasetLoader:
         np.save(y_path, self.labels)
         tqdm.write(f"Saved spectrogram data:\n- {X_path}\n- {y_path}")
 
-    # ------------------------------------------------------------------
     def run_pipeline(self):
         """Full pipeline: load -> convert -> save."""
         tqdm.write("Running full waveform-to-spectrogram pipeline...\n")
