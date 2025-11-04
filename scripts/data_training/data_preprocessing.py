@@ -4,7 +4,7 @@
 #
 # Example :
 # from data_preprocessing import WaveformDatasetLoader
-# loader = WaveformDatasetLoader(data_dir="/content/drive/MyDrive/Colab Notebooks/GW_CNN_portfolio_project/GW_L1_sim_data")
+# loader = WaveformDatasetLoader(data_dir="GW_sim_data")
 # Run the full preprocessing pipeline
 # loader.run_pipeline()
 # X_specs, y_labels = loader.spectrograms, loader.labels
