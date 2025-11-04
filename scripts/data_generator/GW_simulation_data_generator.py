@@ -1,5 +1,5 @@
 # ======================================================================================================================
-# This is the pipeline to genarate gravitational waves simulations data added with simulated transient noise 
+# This is the pipeline to genarate gravitational waves simulations data (GW waveforms + simulated transient noise) 
 # To run this pipeline 
 # first, generate the noise samples with specified real data folder and the output folder
 # second, run the simulation data generator with specified mass range and distance range 
@@ -162,4 +162,5 @@ class GWTCWaveformSimulator:
                             sim_count += 1
                             pbar.update(1)
         tqdm.write(f"{sim_count} gravitational wave simulations completed and saved.")
+
 
