@@ -178,7 +178,7 @@ class SpectrogramCNNTrainer:
         return cnn_model, history
 
     # ----------------------------------------------------------
-    def save_model_and_history(self, model_name="model_cnn_spect_ymaxnorm_DO0.3"):
+    def save_model_and_history(self, model_name="model_gwcnn"):
         """Save trained model (.keras) and training history (.pkl)."""
         model_path = os.path.join(self.model_output_dir, f"{model_name}.keras")
         hist_path = os.path.join(self.model_output_dir, f"history_{model_name}.pkl")
