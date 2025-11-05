@@ -5,7 +5,7 @@
 # from data_preprocessing import WaveformDatasetLoader
 # trainer = SpectrogramCNNTrainer(
 #   sim_data_dir="GW_sim_data/training_data",
-#   real_data_dir="gravitational_wave_real_data/waveform/training_data",
+#   real_data_dir="GW_real_data/waveform/training_data",
 #   model_output_dir="model_output")
 # trainer.run_pipeline()
 # ======================================================================================================================
