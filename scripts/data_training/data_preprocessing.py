@@ -1,6 +1,6 @@
-# ======================================================================================================================
-# This code is the pipeline to preprocess the simulated data before training. This pipeline consist of data loading from 
-# waveforms into a single txt file and the conversion into spectrogram for each waveform from that txt file.
+# ===========================================================================================================================
+# This code is the pipeline to preprocess the simulated data before training. This pipeline consist of the data loading 
+# from waveforms dierectory into a single .txt file and the conversion into spectrogram for each waveform from that txt file.
 #
 # Example :
 # from data_preprocessing import WaveformDatasetLoader
@@ -10,7 +10,7 @@
 # X_specs, y_labels = loader.spectrograms, loader.labels
 # print("Spectrograms shape:", X_specs.shape)
 # print("Labels shape:", y_labels.shape)
-# ======================================================================================================================
+# =============================================================================================================================
 
 import os
 import numpy as np
