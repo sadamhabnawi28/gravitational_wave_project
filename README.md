@@ -57,3 +57,12 @@ Hi there! I'm **Sadam Habnawi**. I'm a physics fresh graduate, i have a great en
 Let's stay in touch! Feel free to connect with me on the following platforms:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](http://www.linkedin.com/in/sadam-habnawi-7621011b4)
+
+---
+
+## 🌠 Acknowledgements
+
+- [LIGO Scientific Collaboration](https://www.ligo.org)
+- [PyCBC Project](https://github.com/gwastro/pycbc)
+- [Keras & TensorFlow](https://www.tensorflow.org)
+- [GWTC Public Data Release](https://www.gw-openscience.org/eventapi/html/GWTC/)
