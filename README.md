@@ -10,7 +10,7 @@ The project processes raw strain data, converts it into spectrograms, and trains
 
 **Pipeline Summary:**
 1. 🛰️ **Download GW Data** from [GWTC Catalog](https://www.gw-openscience.org/eventapi/html/GWTC/).
-2. 🧩 **Extract Strain Files** (`L1`) and preprocess them.
+2. 🧩 **Extract Strain Files** and preprocess them.
 3. 🎧 **Generate Simulated Noise** and synthetic GW signals using PyCBC.
 4. 🔬 **Convert Time-Series → Spectrograms** using `scipy.signal.spectrogram` + TensorFlow resizing.
 5. 🧠 **Train a CNN** to predict GW event properties.

@@ -24,6 +24,9 @@ import numpy as np
 from tqdm import tqdm
 from pycbc.noise.reproduceable import colored_noise
 from pycbc.types import TimeSeries
+from pycbc.filter import highpass
+from pycbc.psd import interpolate, inverse_spectrum_truncation
+from pycbc.waveform import get_td_waveform
 from pycbc.psd import (
     aLIGOZeroDetHighPower, aLIGOZeroDetLowPower, aLIGOaLIGO175MpcT1800545,
     aLIGOThermal, AdvVirgo, AdVO3LowT1800545, AdVEarlyLowSensitivityP1200087,
@@ -62,7 +65,7 @@ class L1NoiseGenerator:
         ]
 
         generated_files = []
-        for filename, psd_func in tqdm(configs, desc="🎧 Generating L1 noise samples", unit="file"):
+        for filename, psd_func in tqdm(configs, desc="Generating L1 noise samples", unit="file"):
             event_id = os.path.splitext(filename)[0].split('_')[1]
             save_path = os.path.join(self.output_folder, f"L1_{event_id}_noise.txt")
             if not os.path.exists(save_path) or overwrite:
