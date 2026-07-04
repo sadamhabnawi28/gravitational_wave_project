@@ -140,7 +140,7 @@ class SpectrogramCNNTrainer:
         return model
 
     # ----------------------------------------------------------
-    def train_cnn_model(self, X_train, y_train):
+    def train_cnn_model(self, X_train, y_train, epoch):
         """Compile, train, and validate CNN model."""
         tqdm.write("Starting CNN training...")
         input_shape = (X_train.shape[1], X_train.shape[2], X_train.shape[3])
@@ -165,7 +165,7 @@ class SpectrogramCNNTrainer:
 
         history = cnn_model.fit(
             X_train, y_train,
-            epochs=5,
+            epochs=epoch,
             batch_size=64,
             validation_split=0.2,
             callbacks=[early_stopping, lr_schedule],
@@ -191,7 +191,7 @@ class SpectrogramCNNTrainer:
         tqdm.write(f"Saved training history: {hist_path}")
 
     # ----------------------------------------------------------
-    def run_pipeline(self):
+    def run_pipeline(self, epoch):
         """Full pipeline: load -> normalize -> split -> train -> save."""
         tqdm.write("Starting Spectrogram CNN training pipeline...\n")
 
@@ -209,7 +209,7 @@ class SpectrogramCNNTrainer:
         )
 
         # 4. Train model
-        self.train_cnn_model(X_train, y_train)
+        self.train_cnn_model(X_train, y_train, epoch)
 
         # 5. Save results
         self.save_model_and_history()
