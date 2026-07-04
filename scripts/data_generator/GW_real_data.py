@@ -29,6 +29,19 @@ from pycbc.waveform import get_td_waveform
 
 
 class GWTCDataHandler:
+    """
+    This code is the pipeline to get the real LIGO GW data\n
+    To run this pipeline specify the catalog file and the output directory into the GWTCDataHandler class\n
+    # Example :
+    from GW_real_data import GWTCDataHandler\n
+    gwtc_handler = GWTCDataHandler(\n
+        gwtc_csv_path="GWTC_123.csv",\n
+        output_folder="gravitational_wave_real_data",\n
+        waveform_output="gravitational_wave_real_data/waveform")\n
+    gwtc_handler.run_pipeline()
+
+    """
+    
     def __init__(self, gwtc_csv_path, output_folder,
                  waveform_output, max_workers=8):
         """

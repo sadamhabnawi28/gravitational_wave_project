@@ -21,6 +21,19 @@ from tqdm import tqdm
 
 
 class SpectrogramCNNTrainer:
+
+    """
+    This code is the pipeline to train the spectrograms of simulated waveform GW data\n
+    
+    # Example :
+    from data_preprocessing import WaveformDatasetLoader\n
+    trainer = SpectrogramCNNTrainer(
+      sim_data_dir="GW_sim_data/training_data",
+      real_data_dir="GW_real_data/waveform/training_data",
+      model_output_dir="model_output")\n
+    trainer.run_pipeline()
+
+    """
     def __init__(self,
                  sim_data_dir,
                  real_data_dir,

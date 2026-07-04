@@ -19,6 +19,21 @@ from scipy import signal
 import tensorflow as tf
 
 class WaveformDatasetLoader:
+    """
+    This code is the pipeline to preprocess the simulated data before training.\n
+    This pipeline consist of the data loading
+    from waveforms dierectory into a single .txt file and the conversion into spectrogram for each waveform from that txt file.
+    
+    # Example :
+    from data_preprocessing import WaveformDatasetLoader\n
+    loader = WaveformDatasetLoader(data_dir="GW_sim_data")\n
+    Run the full preprocessing pipeline\n
+    loader.run_pipeline()\n
+    X_specs, y_labels = loader.spectrograms, loader.labels\n
+    print("Spectrograms shape:", X_specs.shape)\n
+    print("Labels shape:", y_labels.shape)\n
+
+    """
     def __init__(self, data_dir, output_subdir="training_data"):
         """
         Handles loading, saving, and converting waveform simulation data.

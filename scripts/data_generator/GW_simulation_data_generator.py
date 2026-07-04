@@ -35,6 +35,28 @@ from pycbc.psd import (
 
 # Noise Samples Generator
 class L1NoiseGenerator:
+
+    """
+    This is the pipeline to genarate gravitational waves simulations data (GW waveforms + simulated transient noise)\n
+    To run this pipeline:\n 
+    first, generate the noise samples with specified real data folder and the output folder\n
+    second, run the simulation data generator with specified mass range and distance range\n 
+    
+    # Example :
+    from GW_simulation_data_generator import L1NoiseGenerator, GWTCWaveformSimulator\n
+    noise_gen = L1NoiseGenerator(
+        data_folder="GW_real_data",
+        output_folder="GW_sim_data/generated_noises")\n
+    generated = noise_gen.generate_all_noises()\n
+    print(generated)\n
+    sim = GWTCWaveformSimulator(
+        noise_folder="GW_sim_data/generated_noises", 
+        output_folder="GW_sim_data")\n
+    mass_range = np.linspace(5, 45, 8)\n
+    distance_range = np.linspace(600, 1945, 4)\n
+    sim.run_simulations(mass_range, distance_range)
+
+    """
     def __init__(self, data_folder, output_folder):
         self.data_folder = data_folder
         self.output_folder = output_folder
