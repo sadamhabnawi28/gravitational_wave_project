@@ -6,19 +6,19 @@ The project processes raw strain data, converts it into spectrograms, and trains
 
 ---
 
-## 📁 Project Overview
+## Project Overview
 
 **Pipeline Summary:**
-1. 🛰️ **Download GW Data** from [GWTC Catalog](https://www.gw-openscience.org/eventapi/html/GWTC/).
-2. 🧩 **Extract Strain Files** and preprocess them.
-3. 🎧 **Generate Simulated Noise** and synthetic GW signals using PyCBC.
-4. 🔬 **Convert Time-Series → Spectrograms** using `scipy.signal.spectrogram` + TensorFlow resizing.
-5. 🧠 **Train a CNN** to predict GW event properties.
-6. 📊 **Visualize Results**: Loss curves, and model architecture.
+1. **Download GW Data** from [GWTC Catalog](https://www.gw-openscience.org/eventapi/html/GWTC/).
+2. **Extract Strain Files** and preprocess them.
+3. **Generate Simulated Noise** and synthetic GW signals using PyCBC.
+4. **Convert Time-Series → Spectrograms** using `scipy.signal.spectrogram` + TensorFlow resizing.
+5. **Train a CNN** to predict GW event properties.
+6. **Visualize Results**: Loss curves, and model architecture.
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Category | Tools |
 |-----------|-------|
@@ -29,7 +29,7 @@ The project processes raw strain data, converts it into spectrograms, and trains
 
 --- 
 
-## 📂 Repository Structure
+## Repository Structure
 ```
 GravitationalWave_DeepLearning_project/
 │
@@ -46,11 +46,11 @@ GravitationalWave_DeepLearning_project/
 ```
 ---
 
-## 🛡️ License
+## License
 
 This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
 
-## 🌟 About Me
+## About Me
 
 Hi there! I'm **Sadam Habnawi**. I'm a physics fresh graduate, i have a great enthusiasm in the field of data including data analytics, engineering, and data science!
 
@@ -60,7 +60,7 @@ Let's stay in touch! Feel free to connect with me on the following platforms:
 
 ---
 
-## 🌠 Acknowledgements
+## Acknowledgements
 
 - [LIGO Scientific Collaboration](https://www.ligo.org)
 - [PyCBC Project](https://github.com/gwastro/pycbc)
