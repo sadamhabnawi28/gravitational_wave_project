@@ -9,12 +9,12 @@ The project processes raw strain data, converts it into spectrograms, and trains
 ## Project Overview
 
 **Pipeline Summary:**
-1. **Download GW Data** from [GWTC Catalog](https://www.gw-openscience.org/eventapi/html/GWTC/).
-2. **Extract Strain Files** and preprocess them.
-3. **Generate Simulated Noise** and synthetic GW signals using PyCBC.
-4. **Convert Time-Series → Spectrograms** using `scipy.signal.spectrogram` + TensorFlow resizing.
-5. **Train a CNN** to predict GW event properties.
-6. **Visualize Results**: Loss curves, and model architecture.
+1. Fetching GW data from [GWTC](https://www.gw-openscience.org/eventapi/html/GWTC/) event API.
+2. Extract strain time series data and analyze them using **FFT (Fast Fourier Transform)**.
+3. Generate simulated noise and synthetic GW signals with PyCBC.
+4. Convert time series data into Spectrograms using `scipy.signal.spectrogram` + **TensorFlow** resizing.
+5. Build and train a CNN to estimate GW event properties such as **mass₁, mass₂, and luminosity distance**.
+6. Visualize Results: Loss curves, and model architecture.
 
 ---
 
@@ -33,13 +33,19 @@ The project processes raw strain data, converts it into spectrograms, and trains
 ```
 GravitationalWave_DeepLearning_project/
 │
-├── Example/                            # Usage example of the pipeline using colab jupyter notebook 
+├── implementation_example/             # Usage example of the pipeline using colab jupyter notebook
+|   ├── gw_cnn_portfolio_project.ipynb
 │
 ├── GW_catalog/                         # Event catalog of real LIGO data
+|   ├── GWTC_123.csv
 │                 
 ├── scripts/                            
 │   ├── data_generator/                 # script for prepare the data 
+|       ├── real_data.py
+|       ├── simulated_data_generator.py
 │   ├── data_training/                  # script for training the data
+|       ├── data_preprocessing.py
+|       ├── GWCNN_trainer.py
 │
 ├── README.md                           # Project overview and instructions
 ├── LICENSE                             # License information for the repository
