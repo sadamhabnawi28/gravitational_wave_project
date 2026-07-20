@@ -1,7 +1,7 @@
 # Gravitational Wave with Deep Learning Project
 
 Welcome to the **Gravitational Wave with Deep Learning Project** repository!  
-This repository is my final project for my study in pyhsics. This repository contains a complete Deep Learning pipeline for analyzing **gravitational wave (GW)** time-series data from LIGO using **deep convolutional neural networks (CNNs)**.
+This repository is my final project for my study in pyhsics. This repository contains a complete Deep Learning pipeline for analyzing **gravitational wave (GW)** time-series data from LIGO using **Deep Convolutional Neural Networks (CNNs)**.
 The project processes raw strain data, converts it into spectrograms, and trains a CNN model to estimate source parameters, in this case the **mass₁, mass₂, and luminosity distance** of a Binary Black Hole System.
 
 ---
