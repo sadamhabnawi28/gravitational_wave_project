@@ -1,8 +1,8 @@
 # Gravitational Wave with Deep Learning Project
 
 Welcome to the **Gravitational Wave with Deep Learning Project** repository!  
-This repository was my final project for my study in pyhsics. This repository contains a complete Deep Learning pipeline for analyzing **gravitational wave (GW)** time-series data from LIGO using **Deep Convolutional Neural Networks (CNNs)**.
-The project processes raw strain data, converts it into spectrograms, and trains a CNN model to estimate source parameters, in this case the **mass₁, mass₂, and luminosity distance** of a Binary Black Hole System.
+This repository was my final project for my study in pyhsics. This repository contains a complete Deep Learning pipeline for analyzing **Gravitational Wave (GW)** time-series data from LIGO using **Deep Convolutional Neural Networks (CNNs)**.
+The project processes raw gravitational wave signals from Binary Black Hole System, converts it into spectrograms (2D representation of a signal), and trains a CNN model from the spectrograms data to estimate source parameters, in this case the **mass₁, mass₂, and luminosity distance** of a Binary Black Hole System.
 
 ---
 
@@ -10,10 +10,10 @@ The project processes raw strain data, converts it into spectrograms, and trains
 
 **Pipeline Summary:**
 1. Fetching GW data from [GWTC](https://www.gw-openscience.org/eventapi/html/GWTC/) event API.
-2. Extract strain time series data and analyze them using **FFT (Fast Fourier Transform)**.
+2. Extract the signal's time series data and analyze them using **FFT (Fast Fourier Transform)**.
 3. Generate simulated noise and synthetic GW signals with PyCBC.
-4. Convert time series data into Spectrograms using `scipy.signal.spectrogram` + **TensorFlow** resizing.
-5. Build and train a CNN to estimate GW event properties such as **mass₁, mass₂, and luminosity distance**.
+4. Convert the signal's time series data into Spectrograms using `scipy.signal.spectrogram` + **TensorFlow** resizing.
+5. Build and train a regression CNN model to estimate GW event properties such as **mass₁, mass₂, and luminosity distance**.
 6. Visualize Results: Loss curves, and model architecture.
 
 ---
