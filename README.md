@@ -24,7 +24,7 @@ The project processes raw gravitational wave signals from Binary Black Hole Syst
 |-----------|-------|
 | **Core Libraries** | `numpy`, `pandas`, `scipy`, `tqdm`, `requests`, `gzip`, `PyCBC` |
 | **Deep Learning** | `TensorFlow`, `Keras`, `sklearn` |
-| **Visualization** | `matplotlib`, `plot_model` |
+| **Visualization** | `matplotlib`, `plot_model`, `corner` |
 | **File I/O** | `pickle`, `os`, `shutil` |
 
 --- 
@@ -32,12 +32,13 @@ The project processes raw gravitational wave signals from Binary Black Hole Syst
 ## Repository Structure
 ```
 GravitationalWave_DeepLearning_project/
-│
-├── implementation_example/             # Usage example of the pipeline using colab jupyter notebook
-|   ├── gw_cnn_portfolio_project.ipynb
-│
+├── GW_Corner                           # Corner plots to compare the estimation result with the true result published by LIGO
+|
 ├── GW_catalog/                         # Event catalog of real LIGO data
 |   ├── GWTC_123.csv
+|
+├── implementation_example/             # Usage example of the pipeline using colab jupyter notebook
+|   ├── gw_cnn_portfolio_project.ipynb
 │                 
 ├── scripts/                            
 │   ├── data_generator/                 # script for prepare the data 
