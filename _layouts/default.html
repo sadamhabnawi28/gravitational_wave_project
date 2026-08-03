@@ -12,8 +12,7 @@
 <script>
 window.MathJax = {
   tex: {
-    inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-    displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
+    inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
   },
   svg: {
     fontCache: 'global'
@@ -234,15 +233,6 @@ window.MathJax = {
     <article class="content">
   {{ content }}
 </article>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  if (window.MathJax) {
-    MathJax.typesetPromise();
-  }
-});
-</script>
-
     <footer>
       © {{ site.time | date: '%Y' }} {{ site.github.owner_name | default: site.title }}
     </footer>
