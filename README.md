@@ -208,8 +208,7 @@ $$
 Used to measures how well the predicted values explain the variance of the true target values. An **R² value close to 1** indicates that the model explains most of the variance in the data, while a value close to **0** indicates poor explanatory power.
 
 $$
-R^2 = 1 - \frac{\sum_{i=1}^{N}(y_i - \hat{y}_i)^2}
-{\sum_{i=1}^{N}(y_i - \bar{y})^2}
+R^2 = 1 - \frac{\sum_{i=1}^{N}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{N}(y_i - \bar{y})^2}
 $$
 
 Where:
