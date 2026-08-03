@@ -197,7 +197,7 @@ MAE = \frac{1}{N}\sum_{i=1}^{N}|y_i - \hat{y}_i|
 $$
 
 ### Root Mean Squared Error (RMSE)
-Absolute Error)	Tracked alongside MSE as it's more interpretable — reported directly in the same physical units as the target (solar masses, Mpc).
+Absolute Error)	Tracked alongside MSE as it's more interpretable reported directly in the same physical units as the target (solar masses, Mpc).
 
 $$
 RMSE = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2}
