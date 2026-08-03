@@ -1,14 +1,12 @@
-```yml
-title: Gravitational Wave with Deep Learning Project
-description: Deep Learning pipeline for analyzing LIGO gravitational-wave signals using Convolutional Neural Networks (CNNs)
+title: "Gravitational Wave with Deep Learning Project"
+description: "Deep Learning pipeline for analyzing LIGO gravitational-wave signals using CNNs"
 
 markdown: kramdown
 highlighter: rouge
 
 kramdown:
-  math_engine: mathjax
   input: GFM
+  math_engine: mathjax
 
 plugins:
   - jekyll-seo-tag
-```
