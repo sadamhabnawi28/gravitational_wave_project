@@ -192,9 +192,8 @@ Because this is a **regression problem**, the following metrics are used:
 ### Mean Absolute Error (MAE)
 Primary loss function during training; penalizes larger errors more heavily, useful for guiding gradient descent.
 
-$$
-MAE = \frac{1}{N}\sum_{i=1}^{N}|y_i - \hat{y}_i|
-$$
+
+/[ MAE = \frac{1}{N}\sum_{i=1}^{N}|y_i - \hat{y}_i| /]
 
 ### Root Mean Squared Error (RMSE)
 Absolute Error)	Tracked alongside MSE as it's more interpretable reported directly in the same physical units as the target (solar masses, Mpc).
