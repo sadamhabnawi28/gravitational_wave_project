@@ -205,7 +205,19 @@ RMSE = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2}
 
 ### Coefficient of Determination (R²)
 
-Used to measure how well the model explains the variance in the target parameters.
+Used to measures how well the predicted values explain the variance of the true target values. An **R² value close to 1** indicates that the model explains most of the variance in the data, while a value close to **0** indicates poor explanatory power.
+
+```math
+R^2 = 1 - \frac{\sum_{i=1}^{N}(y_i - \hat{y}_i)^2}
+{\sum_{i=1}^{N}(y_i - \bar{y})^2}
+```
+
+Where:
+
+* $y_i$ = true value
+* $\hat{y}_i$ = predicted value
+* $\bar{y}$ = mean of the true values
+* $N$ = number of samples
 
 ---
 
