@@ -172,8 +172,6 @@ model = Sequential([
 ])
 ```
 
----
-
 ## Training Configuration
 
 | Hyperparameter   | Value                    |
@@ -253,9 +251,6 @@ These plots are commonly used in astrophysical parameter-estimation studies.
 
 ---
 
----
-
-
 ## Tech Stack
 
 | Category | Tools |
@@ -289,7 +284,6 @@ GravitationalWave_DeepLearning_project/
 ├── README.md                           # Project overview and instructions
 ├── LICENSE                             # License information for the repository
 ```
----
 
 ## License
 
