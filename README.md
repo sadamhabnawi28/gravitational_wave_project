@@ -284,6 +284,15 @@ GravitationalWave_DeepLearning_project/
 ├── README.md                           # Project overview and instructions
 ├── LICENSE                             # License information for the repository
 ```
+## Limitations
+
+This project is intended primarily for **educational and research exploration purposes**. Current limitations include:
+
+* Simplified noise modeling
+* Limited parameter space
+* No full Bayesian posterior estimation
+* Single-detector representation rather than a multi-detector network
+---
 
 ## License
 
