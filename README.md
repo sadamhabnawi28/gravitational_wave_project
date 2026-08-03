@@ -58,11 +58,9 @@ Synthetic training samples are generated using **PyCBC** by varying:
 
 | Parameter             | Typical Range |
 | --------------------- | ------------- |
-| `mass1`               | 5–80 M☉       |
-| `mass2`               | 5–80 M☉       |
-| `luminosity_distance` | 100–5000 Mpc  |
-| `inclination`         | Random        |
-| `phase`               | Random        |
+| `mass1`               | 5–45 M☉       |
+| `mass2`               | 5–45 M☉       |
+| `luminosity_distance` | 600–1945 Mpc  |
 
 Noise is added to simulate realistic detector observations.
 
