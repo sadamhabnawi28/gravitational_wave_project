@@ -293,6 +293,23 @@ This project is intended primarily for **educational and research exploration pu
 * No full Bayesian posterior estimation
 * Single-detector representation rather than a multi-detector network
 ---
+## Future Improvements
+
+Possible future developments:
+
+* Use **1D CNNs** directly on strain time-series data.
+* Add **LSTM / GRU** layers for temporal feature extraction.
+* Incorporate **real detector noise Power Spectral Density (PSD)**.
+* Support **multi-detector inputs** (H1, L1, V1).
+* Predict additional parameters such as:
+
+  * **Chirp mass**
+  * **Spin parameters**
+  * **Sky localization**
+  * **Merger time**
+* Compare CNN performance with **Bayesian parameter estimation pipelines**.
+
+---
 
 ## License
 
