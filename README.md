@@ -54,7 +54,7 @@ The project uses publicly available events from the **Gravitational Wave Open Sc
 
 ### Simulated Data
 
-Synthetic training samples are generated using **PyCBC** by varying:
+Synthetic training samples are generated using [**PyCBC**](https://pycbc.org/) by varying:
 
 | Parameter             | Typical Range |
 | --------------------- | ------------- |
