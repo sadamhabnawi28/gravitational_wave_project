@@ -8,20 +8,21 @@
   {% seo %}
 
   <!-- MathJax configuration -->
+<!-- MathJax -->
 <script>
 window.MathJax = {
   tex: {
     inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
     displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
   },
-  options: {
-    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  svg: {
+    fontCache: 'global'
   }
 };
 </script>
 
-<script defer
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+<script async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
 
   <style>
@@ -231,8 +232,16 @@ window.MathJax = {
 
     <!-- Markdown content -->
     <article class="content">
-      {{ content }}
-    </article>
+  {{ content }}
+</article>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.MathJax) {
+    MathJax.typesetPromise();
+  }
+});
+</script>
 
     <footer>
       © {{ site.time | date: '%Y' }} {{ site.github.owner_name | default: site.title }}
