@@ -20,12 +20,12 @@ The main objectives of this project are:
 - Understand the characteristics of real gravitational-wave signals from LIGO.
 - Generate synthetic BBH signals using **PyCBC**.
 - Transform 1D time-series strain data into **2D spectrograms** suitable for CNN processing.
+- Evaluate the feasibility of deep learning for rapid gravitational-wave parameter estimation.
 - Train a regression-based CNN model to predict:
-
   - **Primary black hole mass (mass₁)**
   - **Secondary black hole mass (mass₂)**
   - **Luminosity distance**
-- Evaluate the feasibility of deep learning for rapid gravitational-wave parameter estimation.
+
 ---
 
 ## Project Overview
