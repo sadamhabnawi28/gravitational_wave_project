@@ -107,6 +107,10 @@ The resulting spectrogram is resized using TensorFlow to a fixed image dimension
 
 Although gravitational-wave data are naturally 1D signals, spectrograms provide a **time–frequency representation** that makes chirp evolution visually distinguishable. CNNs are highly effective at learning spatial patterns from such representations.
 
+![LIGO Spectrogram](images/spectrogram.png)
+
+*Example spectrogram generated from a synthetic Binary Black Hole signal using PyCBC.*
+
 ### Input Pipeline
 
 ```text
