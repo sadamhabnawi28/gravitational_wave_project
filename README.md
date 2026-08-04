@@ -250,6 +250,7 @@ These plots are commonly used in astrophysical parameter-estimation studies.
 ![Corner Plot Example](GW_Corner/GW151012.png)
 
 *Corner Plot Example of GW151012 event.*
+
 ---
 
 ## Tech Stack
