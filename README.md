@@ -1,5 +1,7 @@
 # Gravitational Wave with Deep Learning Project
 
+![GW Image](images/GW.jpg)
+
 {% include github_button.html %}
 
 Welcome to the **Gravitational Wave with Deep Learning Project** repository!  
