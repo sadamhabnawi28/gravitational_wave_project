@@ -242,14 +242,13 @@ The project includes several visual outputs:
 The `GW_Corner/` directory contains **corner plots** comparing:
 
 * **Predicted parameters**
-* **Ground-truth simulated values**
 * **Published LIGO posterior distributions**
 
 These plots are commonly used in astrophysical parameter-estimation studies.
 
 ![Corner Plot Example](GW_Corner/GW151012.png)
 
-*Corner Plot Example of GW151012 event.*
+*Corner plot example of GW151012 event, the green dot is the predicted parameter.*
 
 ---
 
