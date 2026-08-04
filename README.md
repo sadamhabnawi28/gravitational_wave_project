@@ -1,5 +1,5 @@
 # Gravitational Wave with Deep Learning Project
-
+{% include github_button.html %}
 Welcome to the **Gravitational Wave with Deep Learning Project** repository!  
 This repository was my final project for my study in pyhsics. This repository contains a complete Deep Learning pipeline for analyzing **Gravitational Wave (GW)** time-series data from LIGO using **Deep Convolutional Neural Networks (CNNs)**.
 The project processes raw gravitational wave signals from Binary Black Hole System, converts it into spectrograms (2D representation of a signal), and trains a CNN model from the spectrograms data to estimate source parameters, in this case the **mass₁, mass₂, and luminosity distance** of a Binary Black Hole System.
