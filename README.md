@@ -1,6 +1,6 @@
 # Gravitational Wave with Deep Learning Project
 
-![GW Image](images/GW.jpg)
+![GW Image](images/images/q6f8enau83pf1.png)
 
 {% include github_button.html %}
 
