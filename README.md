@@ -1,6 +1,6 @@
 # Gravitational Wave with Deep Learning Project
 
-[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub)](https://github.com/sadamhabnawi28/GravitationalWave_DeepLearning_project)
+{% include github_button.html %}
 
 Welcome to the **Gravitational Wave with Deep Learning Project** repository!  
 This repository was my final project for my study in pyhsics. This repository contains a complete Deep Learning pipeline for analyzing **Gravitational Wave (GW)** time-series data from LIGO using **Deep Convolutional Neural Networks (CNNs)**.
