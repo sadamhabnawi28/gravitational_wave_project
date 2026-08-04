@@ -237,16 +237,6 @@ The project includes several visual outputs:
 * Training vs validation loss
 * MAE curves across epochs
 
-### Spectrogram Samples
-
-```text
-Time ↑
-     |
-Freq |
-     |
-     +────────→
-```
-
 ### Corner Plots
 
 The `GW_Corner/` directory contains **corner plots** comparing:
@@ -257,6 +247,9 @@ The `GW_Corner/` directory contains **corner plots** comparing:
 
 These plots are commonly used in astrophysical parameter-estimation studies.
 
+![Corner Plot Example](GW_Corner/GW151012.png)
+
+*Corner Plot Example of GW151012 event.*
 ---
 
 ## Tech Stack
