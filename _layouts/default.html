@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en-US' }}">
 <head>
@@ -7,22 +8,21 @@
 
   {% seo %}
 
-  <!-- MathJax configuration -->
-<!-- MathJax -->
-<script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
-  },
-  svg: {
-    fontCache: 'global'
-  }
-};
-</script>
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
 
-<script async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-</script>
+  <script async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
 
   <style>
     :root {
@@ -46,10 +46,24 @@ window.MathJax = {
       line-height: 1.7;
     }
 
+    /* ================================================= */
+    /* CONTAINER */
+    /* ================================================= */
+
     .container {
-      max-width: 980px;
+      width: 100%;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 2rem 1.5rem 4rem;
+    }
+
+    /* ================================================= */
+    /* HERO */
+    /* ================================================= */
+
+    .hero-wrapper {
+      max-width: 980px;
+      margin: 0 auto 2rem;
     }
 
     .hero {
@@ -57,15 +71,15 @@ window.MathJax = {
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2.5rem;
-      margin-bottom: 2rem;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
 
     .hero h1 {
       margin: 0 0 0.5rem;
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       color: var(--primary);
+      line-height: 1.2;
     }
 
     .hero p {
@@ -74,12 +88,95 @@ window.MathJax = {
       font-size: 1.05rem;
     }
 
+    /* ================================================= */
+    /* PAGE LAYOUT */
+    /* ================================================= */
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* ================================================= */
+    /* SIDEBAR TOC */
+    /* ================================================= */
+
+    .toc-sidebar {
+      position: sticky;
+      top: 1rem;
+      align-self: start;
+    }
+
+    .toc-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+
+      overflow-y: auto;
+      max-height: calc(100vh - 2rem);
+    }
+
+    .toc-box h3 {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      color: #111827;
+    }
+
+    #toc-filter {
+      width: 100%;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      background: #fff;
+    }
+
+    #toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    #toc li {
+      margin: 0.35rem 0;
+    }
+
+    #toc a {
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      padding: 0.2rem 0;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      transition: color 0.2s ease;
+    }
+
+    #toc a:hover {
+      color: var(--primary);
+    }
+
+    #toc .toc-h3 {
+      padding-left: 1rem;
+      font-size: 0.92rem;
+      color: #374151;
+    }
+
+    /* ================================================= */
+    /* CONTENT */
+    /* ================================================= */
+
     .content {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2.5rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      min-width: 0;
     }
 
     .content h1,
@@ -131,7 +228,10 @@ window.MathJax = {
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
 
-    /* Code blocks */
+    /* ================================================= */
+    /* CODE BLOCKS */
+    /* ================================================= */
+
     pre {
       background: #0f172a;
       color: #e2e8f0;
@@ -145,7 +245,10 @@ window.MathJax = {
       font-family: "Fira Code", Consolas, monospace;
     }
 
-    /* Tables */
+    /* ================================================= */
+    /* TABLES */
+    /* ================================================= */
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -162,103 +265,41 @@ window.MathJax = {
     table th {
       background: #f1f5f9;
     }
-    
-    /* MathJax styling */
-    mjx-container[jax="CHTML"] {
-    margin: 1.5rem 0 !important;
-    overflow-x: auto;
-    }
-    .MathJax_Display {
-    overflow-x: auto;
-    overflow-y: hidden;
-    }
-    /* ===== Page Layout ===== */
-    .page-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-    
-    /* ===== TOC Sidebar ===== */
-    .toc-sidebar {
-      position: sticky;
-      top: 1rem;
-      height: calc(100vh - 2rem);
-    }
-    
-    .toc-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      overflow-y: auto;
-      max-height: 100%;
-    }
-    
-    #toc-filter {
-      width: 100%;
-      padding: 0.6rem 0.8rem;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-    }
-    
-    #toc ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-    
-    #toc li {
-      margin: 0.35rem 0;
-    }
-    
-    #toc a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      display: block;
-      padding: 0.2rem 0;
-    }
-    
-    #toc a:hover {
-      color: var(--primary);
-    }
-    
-    /* indent for h3 */
-    #toc .toc-h3 {
-      padding-left: 1rem;
-      font-size: 0.9rem;
-    }
-    
-    /* ===== Responsive ===== */
-    @media (max-width: 1024px) {
-      .page-layout {
-        grid-template-columns: 1fr;
-      }
-    
-      .toc-sidebar {
-        position: relative;
-        top: auto;
-        height: auto;
-      }
-    }
-    /* MathJax spacing */
+
+    /* ================================================= */
+    /* MATHJAX */
+    /* ================================================= */
+
     mjx-container {
       overflow-x: auto;
       overflow-y: hidden;
       padding: 0.5rem 0;
     }
 
+    /* ================================================= */
+    /* FOOTER */
+    /* ================================================= */
+
     footer {
       text-align: center;
       color: var(--muted);
       font-size: 0.9rem;
       margin-top: 2rem;
+    }
+
+    /* ================================================= */
+    /* RESPONSIVE */
+    /* ================================================= */
+
+    @media (max-width: 1024px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-sidebar {
+        position: relative;
+        top: auto;
+      }
     }
 
     @media (max-width: 768px) {
@@ -272,7 +313,7 @@ window.MathJax = {
       }
 
       .hero h1 {
-        font-size: 1.9rem;
+        font-size: 2rem;
       }
 
       .content h1 {
@@ -289,88 +330,96 @@ window.MathJax = {
 <body>
   <main class="container">
 
-    <!-- Header -->
-    <section class="hero">
-      {% if site.logo %}
-        <img src="{{ site.logo | relative_url }}" alt="Logo" style="max-width:140px; margin-bottom:1rem;">
-      {% endif %}
+    <!-- HERO -->
+    <div class="hero-wrapper">
+      <section class="hero">
+        {% if site.logo %}
+          <img src="{{ site.logo | relative_url }}"
+               alt="Logo"
+               style="max-width:140px; margin-bottom:1rem;">
+        {% endif %}
 
-      <h1>{{ site.title | default: site.github.repository_name }}</h1>
+        <h1>{{ site.title | default: site.github.repository_name }}</h1>
 
-      {% if site.description %}
-        <p>{{ site.description }}</p>
-      {% elsif site.github.project_tagline %}
-        <p>{{ site.github.project_tagline }}</p>
-      {% endif %}
-    </section>
+        {% if site.description %}
+          <p>{{ site.description }}</p>
+        {% elsif site.github.project_tagline %}
+          <p>{{ site.github.project_tagline }}</p>
+        {% endif %}
+      </section>
+    </div>
 
-    <!-- Markdown content -->
+    <!-- PAGE LAYOUT -->
     <div class="page-layout">
 
-  <!-- Sidebar TOC -->
-  <aside class="toc-sidebar">
-    <div class="toc-box">
-      <input type="text" id="toc-filter" placeholder="Filter headings">
-      <nav id="toc"></nav>
+      <!-- SIDEBAR -->
+      <aside class="toc-sidebar">
+        <div class="toc-box">
+          <h3>Contents</h3>
+          <input type="text" id="toc-filter" placeholder="Filter headings">
+          <nav id="toc"></nav>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <article class="content" id="main-content">
+        {{ content }}
+      </article>
+
     </div>
-  </aside>
 
-  <!-- Main content -->
-  <article class="content" id="main-content">
-    {{ content }}
-  </article>
-
-</div>
     <footer>
-      © {{ site.time | date: '%Y' }} {{ site.github.owner_name | default: site.title }}
+      © {{ site.time | date: '%Y' }}
+      {{ site.github.owner_name | default: site.title }}
     </footer>
 
   </main>
+
   <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const content = document.getElementById("main-content");
-  const toc = document.getElementById("toc");
-  const filter = document.getElementById("toc-filter");
+    document.addEventListener("DOMContentLoaded", () => {
+      const content = document.getElementById("main-content");
+      const toc = document.getElementById("toc");
+      const filter = document.getElementById("toc-filter");
 
-  const headings = content.querySelectorAll("h2, h3");
-  const ul = document.createElement("ul");
+      const headings = content.querySelectorAll("h2, h3");
+      const ul = document.createElement("ul");
 
-  headings.forEach((heading, index) => {
-    if (!heading.id) {
-      heading.id = heading.textContent
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-|-$/g, "");
-    }
+      headings.forEach((heading) => {
+        if (!heading.id) {
+          heading.id = heading.textContent
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-|-$/g, '');
+        }
 
-    const li = document.createElement("li");
-    const a = document.createElement("a");
+        const li = document.createElement("li");
+        const a = document.createElement("a");
 
-    a.href = `#${heading.id}`;
-    a.textContent = heading.textContent;
+        a.href = `#${heading.id}`;
+        a.textContent = heading.textContent;
 
-    if (heading.tagName === "H3") {
-      a.classList.add("toc-h3");
-    }
+        if (heading.tagName === "H3") {
+          a.classList.add("toc-h3");
+        }
 
-    li.appendChild(a);
-    ul.appendChild(li);
-  });
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
 
-  toc.appendChild(ul);
+      toc.appendChild(ul);
 
-  // Filter headings
-  filter.addEventListener("input", () => {
-    const term = filter.value.toLowerCase();
+      /* Filter headings */
+      filter.addEventListener("input", () => {
+        const term = filter.value.toLowerCase();
 
-    ul.querySelectorAll("li").forEach(li => {
-      li.style.display = li.textContent.toLowerCase().includes(term)
-        ? "block"
-        : "none";
+        ul.querySelectorAll("li").forEach(li => {
+          li.style.display = li.textContent.toLowerCase().includes(term)
+            ? "block"
+            : "none";
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
 </body>
 </html>
 ```
