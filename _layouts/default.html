@@ -172,6 +172,81 @@ window.MathJax = {
     overflow-x: auto;
     overflow-y: hidden;
     }
+    /* ===== Page Layout ===== */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    
+    /* ===== TOC Sidebar ===== */
+    .toc-sidebar {
+      position: sticky;
+      top: 1rem;
+      height: calc(100vh - 2rem);
+    }
+    
+    .toc-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      overflow-y: auto;
+      max-height: 100%;
+    }
+    
+    #toc-filter {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    #toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    
+    #toc li {
+      margin: 0.35rem 0;
+    }
+    
+    #toc a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      display: block;
+      padding: 0.2rem 0;
+    }
+    
+    #toc a:hover {
+      color: var(--primary);
+    }
+    
+    /* indent for h3 */
+    #toc .toc-h3 {
+      padding-left: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    /* ===== Responsive ===== */
+    @media (max-width: 1024px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+    
+      .toc-sidebar {
+        position: relative;
+        top: auto;
+        height: auto;
+      }
+    }
     /* MathJax spacing */
     mjx-container {
       overflow-x: auto;
@@ -230,14 +305,72 @@ window.MathJax = {
     </section>
 
     <!-- Markdown content -->
-    <article class="content">
-  {{ content }}
-</article>
+    <div class="page-layout">
+
+  <!-- Sidebar TOC -->
+  <aside class="toc-sidebar">
+    <div class="toc-box">
+      <input type="text" id="toc-filter" placeholder="Filter headings">
+      <nav id="toc"></nav>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <article class="content" id="main-content">
+    {{ content }}
+  </article>
+
+</div>
     <footer>
       © {{ site.time | date: '%Y' }} {{ site.github.owner_name | default: site.title }}
     </footer>
 
   </main>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const content = document.getElementById("main-content");
+  const toc = document.getElementById("toc");
+  const filter = document.getElementById("toc-filter");
+
+  const headings = content.querySelectorAll("h2, h3");
+  const ul = document.createElement("ul");
+
+  headings.forEach((heading, index) => {
+    if (!heading.id) {
+      heading.id = heading.textContent
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+    }
+
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+
+    a.href = `#${heading.id}`;
+    a.textContent = heading.textContent;
+
+    if (heading.tagName === "H3") {
+      a.classList.add("toc-h3");
+    }
+
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+
+  toc.appendChild(ul);
+
+  // Filter headings
+  filter.addEventListener("input", () => {
+    const term = filter.value.toLowerCase();
+
+    ul.querySelectorAll("li").forEach(li => {
+      li.style.display = li.textContent.toLowerCase().includes(term)
+        ? "block"
+        : "none";
+    });
+  });
+});
+</script>
 </body>
 </html>
 ```
